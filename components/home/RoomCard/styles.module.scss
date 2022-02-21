@@ -1,0 +1,90 @@
+.container {
+  padding: 15px;
+
+  width: 280px;
+  position: relative;
+
+  isolation: isolate;
+  will-change: transform;
+
+  box-shadow: 0 0 10px rgba(127, 127, 127, 0.15) !important;
+
+  & > button {
+    padding: 15px;
+  }
+}
+
+.hidden {
+  opacity: 0;
+}
+
+@mixin hide-overflow {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  //gap: 5px;
+
+  & > p {
+    font-size: 12px;
+    margin: 0 7px 0 0;
+    color: #40b2a4;
+  }
+}
+
+.head {
+  @include hide-overflow;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+}
+
+.desc {
+  word-break: break-all;
+  color: #757575;
+  font-size: 13px;
+  padding-top: 5px;
+
+  //max-height: 30px;
+  overflow: hidden;
+}
+
+.members {
+  display: flex;
+  flex-direction: column;
+  padding-inline: 5px;
+  padding-top: 10px;
+}
+
+.member {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 35px;
+  gap: 10px;
+
+  p {
+    @include hide-overflow;
+    color: #757575;
+    font-size: 14px;
+    margin: 0;
+    //padding-block: 5px;
+    //height: 30px;
+  }
+
+  // todo: move styles to icon.render();
+  svg, img {
+    height: 22px;
+    width: 22px;
+  }
+  img {
+    border-radius: 50%;
+  }
+
+}
+

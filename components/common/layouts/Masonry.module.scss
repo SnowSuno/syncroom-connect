@@ -1,0 +1,16 @@
+@import "constants/styles/variables";
+
+.grid {
+  display: flex;
+  width: auto;
+  justify-content: center;
+}
+
+.column {
+  width: auto !important;
+
+  & > div {
+    box-sizing: border-box;
+    margin: $gap*2 $gap 0;
+  }
+}

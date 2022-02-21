@@ -3,7 +3,6 @@ import {Country} from "../constants";
 import {Member, PrivateMember, PublicMember, TempMember} from "./member";
 
 import {encode} from "base62";
-import memoize from "memoized-class-decorator";
 
 const TAG_MAP = ["練習中", "おしゅべり", "初心者OK", "配信中", "録音中", "Classic", "Country/Folk", "Club Music/EDM", "Hip Hop/Rap", "R&B/Soul", "Jazz", "Fusion", "Rock", "HR/HM", "洋楽", "J-Pop", "アイドル", "アニメ・ゲーム・ボカロ", "World"];
 

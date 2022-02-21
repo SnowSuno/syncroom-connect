@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {getApiData} from "../../core/api/syncroom";
-import {Room} from "../../core/classes/room";
+import {Room} from "../../core/entities/room";
 
 
 const getRooms = async () => {
@@ -8,7 +8,7 @@ const getRooms = async () => {
     return rooms.map(roomData => new Room(roomData));
 }
 
-export const useRooms = () => {
+export const useRoomData = () => {
     const [data, setData] = useState<Room[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<unknown>(null);
