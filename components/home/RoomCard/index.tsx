@@ -1,7 +1,7 @@
 import React, {FunctionComponent} from "react";
 import styles from "./styles.module.scss";
 
-import {Card} from "../../common/cards";
+import {Card, CardActionArea} from "../../common/cards";
 import {List, ListItem} from "../../common/lists";
 
 import {Room} from "../../../core/entities/room";
@@ -20,28 +20,30 @@ function RoomCard({room}: RoomCardProps) {
     return (
         <Flipped {...getFlippedProps(key)}>
             <Card width={300}>
-                <div className={styles.tags}>
-                    {room.tags.map(tag => <p key={tag}>{`#${tag}`}</p>)}
-                </div>
+                <CardActionArea>
+                    <div className={styles.tags}>
+                        {room.tags.map(tag => <p key={tag}>{`#${tag}`}</p>)}
+                    </div>
 
-                <div className={styles.head}>
-                    {room.name}
-                </div>
+                    <div className={styles.head}>
+                        {room.name}
+                    </div>
 
-                <div className={styles.desc}>
-                    {room.desc}
-                </div>
+                    <div className={styles.desc}>
+                        {room.desc}
+                    </div>
 
-                <List>
-                    {room.members.map(member =>
-                        <ListItem key={member.id}>{member.name}</ListItem>
-                    )}
-                </List>
-                {/*<div className={styles.members}>*/}
-                {/*    {room.members.map(member =>*/}
-                {/*        <MemberItem key={member.id} member={member}/>*/}
-                {/*    )}*/}
-                {/*</div>*/}
+                    <List>
+                        {room.members.map(member =>
+                            <ListItem key={member.id}>{member.name}</ListItem>
+                        )}
+                    </List>
+                    {/*<div className={styles.members}>*/}
+                    {/*    {room.members.map(member =>*/}
+                    {/*        <MemberItem key={member.id} member={member}/>*/}
+                    {/*    )}*/}
+                    {/*</div>*/}
+                </CardActionArea>
             </Card>
         </Flipped>
     )

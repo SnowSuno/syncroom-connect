@@ -1,7 +1,9 @@
 // colors
 $white: #FFFFFF;
 
-$pale-gray: #F5F5F9;
+
+$gray-50: #fbfbfe;
+$gray-100: #F5F5F9;
 
 
 $cyan: #49C5B6;
@@ -10,10 +12,17 @@ $cyan: #49C5B6;
 
 // theme
 $primary: $cyan;
-$background: $pale-gray;
+$background: $gray-100;
+
+$hover: $gray-50;
 
 
 
 // sizes
 $border-radius: 5px;
 $gap: 5px;
+
+
+@mixin shadow {
+  box-shadow: 0 0 10px rgba(127, 127, 127, 0.15);
+}

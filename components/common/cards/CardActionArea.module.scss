@@ -1,0 +1,10 @@
+@import "constants/styles/variables";
+
+.main {
+  text-align: unset;
+  width: 100%;
+
+  &:hover {
+    background-color: $hover;
+  }
+}

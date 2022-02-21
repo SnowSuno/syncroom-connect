@@ -5,6 +5,7 @@ interface CardProps {
     children: ReactNode;
     width?: number | string;
     height?: number | string;
+    padding?: number | string;
 }
 
 const Card = (
@@ -16,7 +17,7 @@ const Card = (
 ) => (
     <div
         className={styles.container}
-        style={{width, height, padding: 15}}
+        style={{width, height}}
         {...extra}
     >
         {children}

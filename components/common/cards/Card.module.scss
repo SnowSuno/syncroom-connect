@@ -1,6 +1,8 @@
 @import "constants/styles/variables";
 
 .container {
+  @include shadow;
   background-color: $white;
   border-radius: $border-radius;
+  overflow: hidden;
 }
