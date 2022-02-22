@@ -10,12 +10,13 @@ import RoomModal from "../RoomModal";
 
 import {Room} from "../../../core/entities/room";
 
-import {getFlipperProps} from "./transitions";
+import {motion, AnimatePresence} from "framer-motion";
+
+
 
 interface RoomGridProps {
     data: Room[];
 }
-
 
 
 function RoomGrid({data}: RoomGridProps) {
@@ -26,25 +27,30 @@ function RoomGrid({data}: RoomGridProps) {
     }, [openedRoom]);
 
     return (
-        <Flipper {...getFlipperProps(data)}>
-            <Masonry
-                // breakpointCols={4}
-                // className={styles.grid}
-                // columnClassName={styles.column}
-            >
-                {data.map(room => <RoomCard
-                    key={room.id}
-                    room={room}
-                    openedRoom={openedRoom}
-                    open={() => setOpenedRoom(room)}
-                />)}
-            </Masonry>
-            <RoomModal
-                room={openedRoom}
-                close={() => setOpenedRoom(null)}
-            />
-        </Flipper>
+        <motion.div layout>
+            <AnimatePresence>
+                <Masonry
+                    // breakpointCols={4}
+                    // className={styles.grid}
+                    // columnClassName={styles.column}
+                >
+                    {data.map(room => <RoomCard
+                        key={room.id}
+                        room={room}
+                        openedRoom={openedRoom}
+                        open={() => setOpenedRoom(room)}
+                    />)}
+                </Masonry>
+                <RoomModal
+                    room={openedRoom}
+                    close={() => setOpenedRoom(null)}
+                />
+            </AnimatePresence>
+        </motion.div>
     )
 }
+
+
+
 
 export default RoomGrid;
