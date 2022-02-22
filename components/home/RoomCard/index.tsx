@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from "react";
+import React from "react";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 
@@ -6,26 +6,28 @@ import {Card, CardActionArea} from "../../common/cards";
 import {List, ListItem} from "../../common/lists";
 
 import {Room} from "../../../core/entities/room";
-import {flippedProps} from "./transitions";
 
-import {Flipped} from "react-flip-toolkit";
+
+import {motion} from "framer-motion";
+
 
 interface RoomCardProps {
     room: Room;
-    openedRoom: Room | null;
+    selectedId: string | null;
     open: () => void;
 }
 
-function RoomCard({room, openedRoom, open}: RoomCardProps) {
 
-
-
-    const isOpen = openedRoom?.id === room.id;
-
-
+function RoomCard({room, selectedId, open}: RoomCardProps) {
+    const isOpen = selectedId === room.id;
 
     return (
-        <Flipped flipId={isOpen ? undefined : room.id} {...flippedProps}>
+        <motion.div
+            layout
+            layoutId={isOpen ? undefined : room.id}
+            animate={{opacity: 1}}
+            initial={{opacity: 0}}
+        >
             <Card
                 style={{width: 300}}
                 className={classNames(
@@ -58,7 +60,7 @@ function RoomCard({room, openedRoom, open}: RoomCardProps) {
                     {/*</div>*/}
                 </CardActionArea>
             </Card>
-        </Flipped>
+        </motion.div>
     )
 }
 

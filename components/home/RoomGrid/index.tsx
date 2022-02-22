@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 import styles from "./styles.module.scss";
 
-import {Flipper} from "react-flip-toolkit";
-// import Masonry from "react-masonry-css";
 import {Masonry} from "../../common/layouts";
 
 import RoomCard from "../RoomCard";
@@ -10,41 +8,47 @@ import RoomModal from "../RoomModal";
 
 import {Room} from "../../../core/entities/room";
 
-import {getFlipperProps} from "./transitions";
+import {motion, AnimatePresence, AnimateSharedLayout} from "framer-motion";
+
 
 interface RoomGridProps {
     data: Room[];
 }
 
 
-
 function RoomGrid({data}: RoomGridProps) {
-    const [openedRoom, setOpenedRoom] = useState<Room | null>(null);
+    const [selectedId, setSelectedId] = useState<string | null>(null);
 
     React.useEffect(() => {
-        console.log(openedRoom)
-    }, [openedRoom]);
+        console.log(selectedId)
+    }, [selectedId]);
 
     return (
-        <Flipper {...getFlipperProps(data)}>
-            <Masonry
-                // breakpointCols={4}
-                // className={styles.grid}
-                // columnClassName={styles.column}
-            >
-                {data.map(room => <RoomCard
-                    key={room.id}
-                    room={room}
-                    openedRoom={openedRoom}
-                    open={() => setOpenedRoom(room)}
-                />)}
-            </Masonry>
-            <RoomModal
-                room={openedRoom}
-                close={() => setOpenedRoom(null)}
-            />
-        </Flipper>
+        <motion.div layout>
+            <AnimateSharedLayout>
+                <AnimatePresence>
+                    <Masonry
+                        // breakpointCols={4}
+                        // className={styles.grid}
+                        // columnClassName={styles.column}
+                    >
+                        {data.map(room => <RoomCard
+                            key={room.id}
+                            room={room}
+                            selectedId={selectedId}
+                            open={() => setSelectedId(room.id)}
+                        />)}
+                    </Masonry>
+                    <RoomModal
+                        data={data}
+                        selectedId={selectedId}
+                        close={() => setSelectedId(null)}
+                    />
+                </AnimatePresence>
+            </AnimateSharedLayout>
+        </motion.div>
     )
 }
+
 
 export default RoomGrid;
