@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from "react";
+import React from "react";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 
@@ -6,9 +6,7 @@ import {Card, CardActionArea} from "../../common/cards";
 import {List, ListItem} from "../../common/lists";
 
 import {Room} from "../../../core/entities/room";
-import {flippedProps} from "./transitions";
 
-import {Flipped} from "react-flip-toolkit";
 
 import {motion} from "framer-motion";
 
@@ -18,9 +16,6 @@ interface RoomCardProps {
     selectedId: string | null;
     open: () => void;
 }
-
-
-
 
 
 function RoomCard({room, selectedId, open}: RoomCardProps) {

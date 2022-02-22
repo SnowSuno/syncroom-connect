@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 import styles from "./styles.module.scss";
 
-import {Flipper} from "react-flip-toolkit";
-// import Masonry from "react-masonry-css";
 import {Masonry} from "../../common/layouts";
 
 import RoomCard from "../RoomCard";
