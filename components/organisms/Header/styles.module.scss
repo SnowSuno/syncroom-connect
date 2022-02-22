@@ -2,5 +2,8 @@
 
 .container {
   background-color: $white;
-  height: 50px;
+  height: $header-height;
+  position: fixed;
+  width: 100%;
+  z-index: 500;
 }

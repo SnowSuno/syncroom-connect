@@ -1,23 +1,25 @@
-import React, {ReactElement, ReactNode} from "react";
+import React, {CSSProperties, ReactNode} from "react";
+import classNames from "classnames";
 import styles from "./Card.module.scss";
 
 interface CardProps {
     children: ReactNode;
-    width?: number | string;
-    height?: number | string;
+    style?: CSSProperties;
+    className?: string;
     padding?: number | string;
 }
 
 const Card = (
     {
         children,
-        width = "auto",
-        height = "auto", ...extra
+        style,
+        className,
+        ...extra
     }: CardProps
 ) => (
     <div
-        className={styles.container}
-        style={{width, height}}
+        className={classNames(styles.container, className)}
+        style={style}
         {...extra}
     >
         {children}

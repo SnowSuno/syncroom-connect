@@ -7,16 +7,17 @@
   isolation: isolate;
   will-change: transform;
 
-  box-shadow: 0 0 10px rgba(127, 127, 127, 0.15) !important;
 
   & > button {
     padding: 15px;
   }
 }
 
+
 .hidden {
   opacity: 0;
 }
+
 
 @mixin hide-overflow {
   text-overflow: ellipsis;

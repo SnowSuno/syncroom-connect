@@ -36,9 +36,6 @@ const onExit = (el: HTMLElement, _: number, onComplete: () => void) => {
 }
 
 
-
-export const getFlippedProps = (key: string) => ({
-    key: key,
-    flipId: key,
+export const flippedProps = {
     onAppear, onExit
-})
+}
