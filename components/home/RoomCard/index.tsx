@@ -15,7 +15,7 @@ import {motion} from "framer-motion";
 
 interface RoomCardProps {
     room: Room;
-    openedRoom: Room | null;
+    selectedId: string | null;
     open: () => void;
 }
 
@@ -23,15 +23,13 @@ interface RoomCardProps {
 
 
 
-function RoomCard({room, openedRoom, open}: RoomCardProps) {
-    const isOpen = openedRoom?.id === room.id;
-
-
+function RoomCard({room, selectedId, open}: RoomCardProps) {
+    const isOpen = selectedId === room.id;
 
     return (
         <motion.div
             layout
-            layoutId={room.id}
+            layoutId={isOpen ? undefined : room.id}
             animate={{opacity: 1}}
             initial={{opacity: 0}}
         >

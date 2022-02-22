@@ -10,8 +10,7 @@ import RoomModal from "../RoomModal";
 
 import {Room} from "../../../core/entities/room";
 
-import {motion, AnimatePresence} from "framer-motion";
-
+import {motion, AnimatePresence, AnimateSharedLayout} from "framer-motion";
 
 
 interface RoomGridProps {
@@ -20,37 +19,37 @@ interface RoomGridProps {
 
 
 function RoomGrid({data}: RoomGridProps) {
-    const [openedRoom, setOpenedRoom] = useState<Room | null>(null);
+    const [selectedId, setSelectedId] = useState<string | null>(null);
 
     React.useEffect(() => {
-        console.log(openedRoom)
-    }, [openedRoom]);
+        console.log(selectedId)
+    }, [selectedId]);
 
     return (
         <motion.div layout>
-            <AnimatePresence>
-                <Masonry
-                    // breakpointCols={4}
-                    // className={styles.grid}
-                    // columnClassName={styles.column}
-                >
-                    {data.map(room => <RoomCard
-                        key={room.id}
-                        room={room}
-                        openedRoom={openedRoom}
-                        open={() => setOpenedRoom(room)}
-                    />)}
-                </Masonry>
-                <RoomModal
-                    room={openedRoom}
-                    close={() => setOpenedRoom(null)}
-                />
-            </AnimatePresence>
+            <AnimateSharedLayout>
+                <AnimatePresence>
+                    <Masonry
+                        // breakpointCols={4}
+                        // className={styles.grid}
+                        // columnClassName={styles.column}
+                    >
+                        {data.map(room => <RoomCard
+                            key={room.id}
+                            room={room}
+                            selectedId={selectedId}
+                            open={() => setSelectedId(room.id)}
+                        />)}
+                    </Masonry>
+                    <RoomModal
+                        selectedId={selectedId}
+                        close={() => setSelectedId(null)}
+                    />
+                </AnimatePresence>
+            </AnimateSharedLayout>
         </motion.div>
     )
 }
-
-
 
 
 export default RoomGrid;

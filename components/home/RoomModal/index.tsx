@@ -11,27 +11,27 @@ import classNames from "classnames";
 import {motion} from "framer-motion";
 
 interface RoomModalProps {
-    room: Room | null;
+    selectedId: string | null;
     close: () => void;
 }
 
-function RoomModal({room, close}: RoomModalProps) {
+function RoomModal({selectedId, close}: RoomModalProps) {
 
 
     return (
         <>
             <div className={styles.container}>
-                {room && <motion.div layoutId={room.id}>
+                {selectedId && <motion.div layoutId={selectedId}>
                     <Card className={styles.modal} style={{width: 500, height: 400}}>
                         <button onClick={close}>close</button>
-                        {room.name}
+                        {selectedId}
                     </Card>
                 </motion.div>}
             </div>
             <div
                 className={classNames(
                     styles.backdrop,
-                    {[styles.open]: room !== null}
+                    {[styles.open]: selectedId !== null}
                 )}
                 onClick={close}
             />
