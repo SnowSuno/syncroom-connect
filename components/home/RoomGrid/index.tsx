@@ -40,6 +40,7 @@ function RoomGrid({data}: RoomGridProps) {
                         />)}
                     </Masonry>
                     <RoomModal
+                        data={data}
                         selectedId={selectedId}
                         close={() => setSelectedId(null)}
                     />
