@@ -19,10 +19,12 @@ $hover: $gray-50;
 
 
 // sizes
-$border-radius: 5px;
+$border-radius: 9px;
 $gap: 5px;
 
 $header-height: 50px;
+
+$padding: 20px;
 
 @mixin shadow {
   box-shadow: 0 0 10px rgba(127, 127, 127, 0.15);

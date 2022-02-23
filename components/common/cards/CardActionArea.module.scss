@@ -4,6 +4,8 @@
   text-align: unset;
   width: 100%;
 
+  padding: $padding;
+
   &:hover {
     background-color: $hover;
   }

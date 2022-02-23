@@ -14,7 +14,6 @@ const CardActionArea = (
 ) => (
     <button
         className={styles.main}
-        style={{padding: 15}}
         onClick={onClick}
     >
         {children}
