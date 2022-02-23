@@ -26,6 +26,15 @@ $header-height: 50px;
 
 $padding: 20px;
 
+
+$h1: 20px;
+$h2: 18px;
+$h3: 16px;
+$h4: 14px;
+$h5: 12px;
+$h6: 10px;
+
+
 @mixin shadow {
   box-shadow: 0 0 10px rgba(127, 127, 127, 0.15);
 }

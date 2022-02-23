@@ -4,6 +4,7 @@ import classNames from "classnames";
 
 import {Card, CardActionArea} from "../../common/cards";
 import {List, ListItem} from "../../common/lists";
+import {Text} from "../../common/texts";
 
 import {Room} from "../../../core/entities/room";
 
@@ -30,23 +31,18 @@ function RoomCard({room, selectedId, open}: RoomCardProps) {
         >
             <Card
                 style={{width: 300}}
-                className={classNames(
-                    {[styles.hidden]: isOpen},
-                    // {[styles.blur]: openedRoom !== null}
-                )}
+                className={classNames({[styles.hidden]: isOpen},)}
             >
                 <CardActionArea onClick={open}>
                     <div className={styles.tags}>
                         {room.tags.map(tag => <p key={tag}>{`#${tag}`}</p>)}
                     </div>
-
-                    <div className={styles.head}>
+                    <Text.head className={styles.head}>
                         {room.name}
-                    </div>
-
-                    <div className={styles.desc}>
+                    </Text.head>
+                    <Text.desc className={styles.desc}>
                         {room.desc}
-                    </div>
+                    </Text.desc>
 
                     <List>
                         {room.members.map(member =>
