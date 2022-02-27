@@ -19,6 +19,7 @@ export const useRoomData = () => {
             const data = await getRooms();
             setData(data);
         } catch (e) {
+            console.error(e);
             setError(e);
         }
         setLoading(false);
