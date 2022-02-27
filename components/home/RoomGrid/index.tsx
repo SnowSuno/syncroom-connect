@@ -39,6 +39,8 @@ function RoomGrid({data}: RoomGridProps) {
                             open={() => setSelectedId(room.id)}
                         />)}
                     </Masonry>
+                </AnimatePresence>
+                <AnimatePresence>
                     <RoomModal
                         data={data}
                         selectedId={selectedId}
