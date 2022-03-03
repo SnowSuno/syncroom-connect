@@ -42,8 +42,8 @@ export class PrivateMember extends Member {
 }
 
 export class TempMember extends Member {
-    constructor() {
-        super("임시 참여 중", new TempIcon());
+    constructor(icon: ApiIconData | undefined,) {
+        super("임시 참여 중", new TempIcon(icon));
     }
 }
 

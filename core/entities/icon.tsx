@@ -30,22 +30,25 @@ const getIconSrc = (iconIndex: string) => {
 const defaultIconSrc = "/assets/icons/user.svg";
 
 
-
 export class Icon {
-    // TODO : Apply styles
     private readonly src: string;
-    private readonly style: string[];
+    protected isRounded: boolean;
+    protected isGrayscale: boolean;
 
-    constructor(src: string, style?: string[]) {
+    constructor(src: string) {
         this.src = src;
-        this.style = [styles.round, styles.grayscale];
+        this.isRounded = false;
+        this.isGrayscale = false;
     }
 
     public render(): JSX.Element {
         return <Image
             src={this.src}
             alt="profile"
-            className={classNames(this.style)}
+            className={classNames({
+                [styles.rounded]: this.isRounded,
+                [styles.grayscale]: this.isGrayscale,
+            })}
             width={26}
             height={26}
         />
@@ -57,11 +60,14 @@ export class PublicIcon extends Icon {
         if (iconData === undefined) {
             super(defaultIconSrc);
         } else {
-            super(iconData.iconurl === ""
-                ? getIconSrc(iconData.icon)
-                : iconData.iconurl
+            const isCustom = iconData.iconurl !== "";
+            super(isCustom
+                ? iconData.iconurl
+                : getIconSrc(iconData.icon)
             );
+            this.isRounded = isCustom;
         }
+
     }
 }
 
@@ -71,16 +77,9 @@ export class PrivateIcon extends Icon {
     }
 }
 
-export class TempIcon extends Icon {
-    constructor() {
-        super(defaultIconSrc);
+export class TempIcon extends PublicIcon {
+    constructor(iconData: ApiIconData | undefined) {
+        super(iconData);
+        this.isGrayscale = true;
     }
-    // TODO : Render grayscale icons
-    // constructor(iconData?: ApiIconData) {
-    //     if (iconData) {
-    //         super(iconData)
-    //     } else {
-    //         super({icon: "0"})
-    //     }
-    // }
 }

@@ -79,23 +79,24 @@ export class Room {
         names: string[],
         icons: ApiIconData[],
     ): Member[] {
-        const numPrivateMembers = numMembers - names.length;
+        const publicMembers: PublicMember[] = [];
+        const tempMembers: TempMember[] = [];
 
-        const publicMembers: Member[] = names
-            .filter(name => name !== "")
-            .map((name, i) => new PublicMember(
-                name,
-                icons[i],
-                name === this._creator
-            ));
+        names.forEach((name, i) => {
+            if (name.length > 0) {
+                publicMembers.push(new PublicMember(
+                    name,
+                    icons[i],
+                    name === this._creator,
+                ));
+            } else {
+                tempMembers.push(new TempMember(icons[i]));
+            }
+        });
 
         const privateMembers: Member[] = Array.from(
-            {length: numPrivateMembers},
+            {length: numMembers - names.length},
             (_, i) => new PrivateMember(i));
-
-        const tempMembers: Member[] = Array(
-            numMembers - publicMembers.length - privateMembers.length
-        ).fill(new TempMember());
 
         return [...publicMembers, ...privateMembers, ...tempMembers];
     }
