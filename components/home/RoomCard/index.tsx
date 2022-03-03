@@ -48,7 +48,7 @@ function RoomCard({room, selectedId, open}: RoomCardProps) {
                         {room.desc}
                     </Text.desc>
 
-                    <List className={styles.memberList}>
+                    <List>
                         {room.members.map(member =>
                             <ListItem
                                 key={member.id}

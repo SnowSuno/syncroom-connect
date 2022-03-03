@@ -1,9 +1,23 @@
+@mixin hide-overflow {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+
 .card {
 
-
-  & > button {
+  [class~=CardActionArea] {
     display: flex;
     flex-direction: column;
+  }
+
+  [class~=List] {
+    padding: 10px 5px 0;
+
+    & > li > p {
+      @include hide-overflow;
+    }
   }
 }
 
@@ -12,11 +26,6 @@
 }
 
 
-@mixin hide-overflow {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
 
 .tags {
   display: flex;
@@ -42,10 +51,4 @@
   overflow: hidden;
 }
 
-.memberList {
-  padding: 10px 5px 0;
 
-  & > li > p {
-    @include hide-overflow;
-  }
-}

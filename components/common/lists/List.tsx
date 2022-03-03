@@ -1,4 +1,5 @@
 import React, {ReactNode} from "react";
+import classNames from "classnames";
 
 interface ListProps {
     children: ReactNode;
@@ -8,7 +9,7 @@ interface ListProps {
 function List({className, children}: ListProps) {
 
     return (
-        <ul className={className}>
+        <ul className={classNames("List", className)}>
             {children}
         </ul>
     )

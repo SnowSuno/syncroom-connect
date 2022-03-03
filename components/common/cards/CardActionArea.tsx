@@ -1,4 +1,5 @@
 import React, {ReactNode} from "react";
+import classNames from "classnames";
 import styles from "./CardActionArea.module.scss";
 
 interface CardActionAreaProps {
@@ -13,7 +14,7 @@ const CardActionArea = (
     }: CardActionAreaProps
 ) => (
     <button
-        className={styles.main}
+        className={classNames("CardActionArea", styles.main)}
         onClick={onClick}
     >
         {children}

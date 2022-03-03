@@ -1,4 +1,5 @@
 import React, {ReactNode} from "react";
+import classNames from "classnames";
 import styles from "./CardActions.module.scss";
 
 
@@ -10,7 +11,7 @@ const CardActions = ({children}: CardActionsProps) => {
 
 
     return (
-        <div className={styles.main}>
+        <div className={classNames("CardActions", styles.main)}>
             {children}
         </div>
     )

@@ -1,4 +1,5 @@
 import React, {ReactNode} from "react";
+import classNames from "classnames";
 import styles from "./Masonry.module.scss";
 
 import MasonryCSS from "react-masonry-css";
@@ -11,7 +12,7 @@ interface MasonryProps {
 const Masonry = ({children}: MasonryProps) => (
     <MasonryCSS
         breakpointCols={4}
-        className={styles.grid}
+        className={classNames("Masonry", styles.grid)}
         columnClassName={styles.column}
     >
         {children}

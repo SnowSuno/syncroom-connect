@@ -1,4 +1,5 @@
 import React from "react";
+import classNames from "classnames";
 import styles from "./Button.module.scss";
 
 interface ButtonProps {
@@ -11,7 +12,7 @@ const Button = ({onClick, children}: ButtonProps) => {
 
     return (
         <button
-            className={styles.main}
+            className={classNames("Button", styles.main)}
             onClick={onClick}
         >
             {children}

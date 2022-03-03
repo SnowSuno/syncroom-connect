@@ -18,7 +18,7 @@ const Card = (
     }: CardProps
 ) => (
     <div
-        className={classNames(styles.container, className)}
+        className={classNames("Card", styles.container, className)}
         style={style}
         {...extra}
     >
