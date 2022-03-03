@@ -4,16 +4,24 @@ import styles from "./Modal.module.scss";
 
 interface ModalWrapperProps {
     children: ReactNode;
+    open: boolean;
+    close: () => void;
 }
 
-function Modal({children}: ModalWrapperProps) {
+const Modal = ({children, open, close}: ModalWrapperProps) => {
 
-    return (
-        <>
-            <div className={styles.backdrop}/>
-            <div className={classNames("Modal", styles.container)}>
-                {children}
-            </div>
-        </>
-    )
+    return (<>
+        <div className={classNames("Modal", styles.container)}>
+            {children}
+        </div>
+        <div
+            className={classNames(
+                styles.backdrop,
+                {[styles.open]: open}
+            )}
+            onClick={close}
+        />
+    </>)
 }
+
+export default Modal;
