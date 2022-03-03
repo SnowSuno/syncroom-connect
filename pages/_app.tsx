@@ -8,7 +8,7 @@ import {MotionConfig} from "framer-motion";
 function MyApp({Component, pageProps}: AppProps) {
 
     return (
-        <MotionConfig transition={{duration: 2}}>
+        <MotionConfig transition={{duration: .3}}>
             <Layout>
                 <Component {...pageProps} />
             </Layout>

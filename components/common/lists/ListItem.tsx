@@ -1,4 +1,5 @@
 import React, {ReactElement, ReactNode} from "react";
+import styles from "./ListItem.module.scss";
 
 interface ListItemProps {
     children: ReactNode;
@@ -8,8 +9,9 @@ interface ListItemProps {
 function ListItem({children, icon}: ListItemProps) {
 
     return (
-        <li>
-            {children}
+        <li className={styles.item}>
+            {icon}
+            <p>{children}</p>
         </li>
     )
 }
