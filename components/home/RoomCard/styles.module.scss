@@ -1,18 +1,11 @@
-.container {
-  padding: 15px;
-
-  width: 280px;
-  position: relative;
-
-  isolation: isolate;
-  will-change: transform;
+.card {
 
 
   & > button {
-    padding: 15px;
+    display: flex;
+    flex-direction: column;
   }
 }
-
 
 .hidden {
   opacity: 0;
@@ -39,47 +32,20 @@
 }
 
 .head {
-  @include hide-overflow;
+  //@include hide-overflow;
 }
 
 .desc {
-  padding-top: 5px;
+  padding-top: 10px;
 
   //max-height: 30px;
   overflow: hidden;
 }
 
-.members {
-  display: flex;
-  flex-direction: column;
-  padding-inline: 5px;
-  padding-top: 10px;
-}
+.memberList {
+  padding: 10px 5px 0;
 
-.member {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 35px;
-  gap: 10px;
-
-  p {
+  & > li > p {
     @include hide-overflow;
-    color: #757575;
-    font-size: 14px;
-    margin: 0;
-    //padding-block: 5px;
-    //height: 30px;
   }
-
-  // todo: move styles to icon.render();
-  svg, img {
-    height: 22px;
-    width: 22px;
-  }
-  img {
-    border-radius: 50%;
-  }
-
 }
-

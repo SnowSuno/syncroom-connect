@@ -49,8 +49,8 @@ export class Icon {
                 [styles.rounded]: this.isRounded,
                 [styles.grayscale]: this.isGrayscale,
             })}
-            width={26}
-            height={26}
+            width={27}
+            height={27}
         />
     }
 }

@@ -2,12 +2,13 @@ import React, {ReactNode} from "react";
 
 interface ListProps {
     children: ReactNode;
+    className?: string;
 }
 
-function List({children}: ListProps) {
+function List({className, children}: ListProps) {
 
     return (
-        <ul>
+        <ul className={className}>
             {children}
         </ul>
     )

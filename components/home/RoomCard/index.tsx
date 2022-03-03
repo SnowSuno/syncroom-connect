@@ -31,7 +31,10 @@ function RoomCard({room, selectedId, open}: RoomCardProps) {
         >
             <Card
                 style={{width: 300}}
-                className={classNames({[styles.hidden]: isOpen},)}
+                className={classNames(
+                    styles.card,
+                    {[styles.hidden]: isOpen}
+                )}
             >
                 <CardActionArea onClick={open}>
                     <div className={styles.tags}>
@@ -44,7 +47,7 @@ function RoomCard({room, selectedId, open}: RoomCardProps) {
                         {room.desc}
                     </Text.desc>
 
-                    <List>
+                    <List className={styles.memberList}>
                         {room.members.map(member =>
                             <ListItem
                                 key={member.id}
