@@ -46,7 +46,12 @@ function RoomCard({room, selectedId, open}: RoomCardProps) {
 
                     <List>
                         {room.members.map(member =>
-                            <ListItem key={member.id}>{member.name}</ListItem>
+                            <ListItem
+                                key={member.id}
+                                icon={member.icon.render()}
+                            >
+                                {member.name}
+                            </ListItem>
                         )}
                     </List>
                     {/*<div className={styles.members}>*/}

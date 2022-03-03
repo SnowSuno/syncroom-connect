@@ -1,43 +1,11 @@
-import React, {FunctionComponent, ReactComponentElement} from "react";
+import React from "react";
+import styles from "./icon.module.scss";
+import classNames from "classnames";
+
+
 import {ApiIconData} from "../api/syncroom";
 import Image from "next/image";
 
-// import {ReactComponent as Drums} from "../../public/assets/icons/inst/drums.svg";
-// import {ReactComponent as Bongos} from "../../public/assets/icons/inst/bongos.svg";
-// import {ReactComponent as Bass} from "../../public/assets/icons/inst/bass.svg";
-// import {ReactComponent as Electric} from "../../public/assets/icons/inst/electric.svg";
-// import {ReactComponent as Acoustic} from "../../public/assets/icons/inst/acoustic.svg";
-// import {ReactComponent as Keyboard} from "../../public/assets/icons/inst/keyboard.svg";
-// import {ReactComponent as Piano} from "../../public/assets/icons/inst/piano.svg";
-// import {ReactComponent as Trumpet} from "../../public/assets/icons/inst/trumpet.svg";
-// import {ReactComponent as Saxophone} from "../../public/assets/icons/inst/saxophone.svg";
-// import {ReactComponent as Flute} from "../../public/assets/icons/inst/flute.svg";
-// import {ReactComponent as Violin} from "../../public/assets/icons/inst/violin.svg";
-// import {ReactComponent as DJ} from "../../public/assets/icons/inst/dj.svg";
-// import {ReactComponent as Vocal} from "../../public/assets/icons/inst/vocal.svg";
-// import {ReactComponent as Stage} from "../../public/assets/icons/inst/stage.svg";
-// import {ReactComponent as Private} from "../../assets/icons/inst/user.svg";
-
-
-// import {Person} from '@mui/icons-material';
-
-// const icons = [
-//     React.memo(Drums),
-//     React.memo(Bongos),
-//     React.memo(Bass),
-//     React.memo(Electric),
-//     React.memo(Acoustic),
-//     React.memo(Keyboard),
-//     React.memo(Piano),
-//     React.memo(Trumpet),
-//     React.memo(Saxophone),
-//     React.memo(Flute),
-//     React.memo(Violin),
-//     React.memo(DJ),
-//     React.memo(Vocal),
-//     React.memo(Stage),
-//     // Private,
-// ];
 const icons = [
     "drums",
     "bongos",
@@ -55,27 +23,42 @@ const icons = [
     "stage",
 ]
 
+const getIconSrc = (iconIndex: string) => {
+    return `/assets/icons/${icons[parseInt(iconIndex)]}.svg`;
+}
+
+const defaultIconSrc = "/assets/icons/user.svg";
+
+
 
 export class Icon {
     // TODO : Apply styles
     private readonly src: string;
+    private readonly style: string[];
 
-    constructor(src: string) {
+    constructor(src: string, style?: string[]) {
         this.src = src;
+        this.style = [styles.round, styles.grayscale];
     }
 
     public render(): JSX.Element {
-        return <Image src={`/assets/icons${this.src}.svg`} alt="profile"/>
+        return <Image
+            src={this.src}
+            alt="profile"
+            className={classNames(this.style)}
+            width={26}
+            height={26}
+        />
     }
 }
 
 export class PublicIcon extends Icon {
     constructor(iconData: ApiIconData | undefined) {
         if (iconData === undefined) {
-            super("user");
+            super(defaultIconSrc);
         } else {
             super(iconData.iconurl === ""
-                ? icons[parseInt(iconData.icon)]
+                ? getIconSrc(iconData.icon)
                 : iconData.iconurl
             );
         }
@@ -84,13 +67,13 @@ export class PublicIcon extends Icon {
 
 export class PrivateIcon extends Icon {
     constructor() {
-        super("user");
+        super(defaultIconSrc);
     }
 }
 
 export class TempIcon extends Icon {
     constructor() {
-        super("user");
+        super(defaultIconSrc);
     }
     // TODO : Render grayscale icons
     // constructor(iconData?: ApiIconData) {
