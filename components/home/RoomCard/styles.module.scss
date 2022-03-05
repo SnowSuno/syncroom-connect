@@ -19,6 +19,14 @@
       @include hide-overflow;
     }
   }
+
+  [class~=CardActions] {
+    & > span {
+      display: flex;
+      flex-direction: row;
+      gap: 2px;
+    }
+  }
 }
 
 .hidden {

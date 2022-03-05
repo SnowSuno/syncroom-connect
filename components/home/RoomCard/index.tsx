@@ -66,14 +66,14 @@ function RoomCard({room, selectedId, open}: RoomCardProps) {
                 </CardActionArea>
                 <CardActions>
                     <p>oo</p>
-                    <p>
+                    <span>
                         <Button>
                             임시
                         </Button>
                         <Button primary>
                             참여
                         </Button>
-                    </p>
+                    </span>
                 </CardActions>
             </Card>
         </motion.div>

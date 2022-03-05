@@ -16,9 +16,9 @@
 .main {
   @include button-theme($gray-500);
 
-  font-size: 14px;
-  border-radius: 3px;
-  padding: 5px 10px;
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 5px 12px;
 }
 
 .primary {
