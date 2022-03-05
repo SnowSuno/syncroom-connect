@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 
+import Image from "next/image";
+
 import {Card, CardActions, CardActionArea} from "../../common/cards";
 import {List, ListItem} from "../../common/lists";
 import {Text} from "../../common/texts";
@@ -65,7 +67,15 @@ function RoomCard({room, selectedId, open}: RoomCardProps) {
                     {/*</div>*/}
                 </CardActionArea>
                 <CardActions>
-                    <p>oo</p>
+                    <span>
+                        <Image
+                            src="/assets/icons/user.svg"
+                            alt=""
+                            width={18}
+                            height={18}
+                        />
+                        <p>{room.members.length} / 5</p>
+                    </span>
                     <span>
                         <Button>
                             임시

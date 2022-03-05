@@ -1,3 +1,5 @@
+@import "constants/styles/variables";
+
 @mixin hide-overflow {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -24,7 +26,17 @@
     & > span {
       display: flex;
       flex-direction: row;
-      gap: 2px;
+      align-items: center;
+      gap: 4px;
+
+      &:first-child {
+        padding-left: 5px;
+      }
+
+      & > p {
+        color: #C3C3C3;
+        font-size: 13px;
+      }
     }
   }
 }
