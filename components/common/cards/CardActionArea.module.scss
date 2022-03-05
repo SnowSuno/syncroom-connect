@@ -4,7 +4,7 @@
   text-align: unset;
   width: 100%;
 
-  padding: $card-padding;
+  padding: $card-padding $card-padding $card-gap;
 
   &:hover {
     background-color: $hover;

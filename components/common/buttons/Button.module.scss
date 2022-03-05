@@ -1,5 +1,26 @@
 @import "constants/styles/variables";
 
+
+@mixin button-theme($color) {
+  color: $color;
+
+  &:hover {
+    background-color: rgba($color, 0.1);
+  }
+
+  &:active {
+    background-color: rgba($color, 0.2);
+  }
+}
+
 .main {
-  
+  @include button-theme($gray-500);
+
+  font-size: 14px;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
+.primary {
+  @include button-theme($primary);
 }

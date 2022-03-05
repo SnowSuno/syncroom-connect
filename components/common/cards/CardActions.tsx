@@ -16,3 +16,5 @@ const CardActions = ({children}: CardActionsProps) => {
         </div>
     )
 }
+
+export default CardActions;

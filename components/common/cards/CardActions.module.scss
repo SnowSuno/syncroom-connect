@@ -1,5 +1,9 @@
+@import "constants/styles/variables";
+
 .main {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  padding: $card-gap $card-padding $card-padding;
 }

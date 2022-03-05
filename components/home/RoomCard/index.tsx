@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 
-import {Card, CardActionArea} from "../../common/cards";
+import {Card, CardActions, CardActionArea} from "../../common/cards";
 import {List, ListItem} from "../../common/lists";
 import {Text} from "../../common/texts";
 import {Button} from "../../common/buttons";
@@ -64,8 +64,17 @@ function RoomCard({room, selectedId, open}: RoomCardProps) {
                     {/*    )}*/}
                     {/*</div>*/}
                 </CardActionArea>
-
-
+                <CardActions>
+                    <p>oo</p>
+                    <p>
+                        <Button>
+                            임시
+                        </Button>
+                        <Button primary>
+                            참여
+                        </Button>
+                    </p>
+                </CardActions>
             </Card>
         </motion.div>
     )
