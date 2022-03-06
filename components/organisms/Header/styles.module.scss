@@ -1,4 +1,4 @@
-@import "../../../constants/styles/variables";
+@import "constants/styles/variables";
 
 .container {
   background-color: $white;
@@ -6,6 +6,10 @@
   position: fixed;
   width: 100%;
   z-index: 500;
+  border-bottom: $gray-200 1px solid;
+
+  display: flex;
+  flex-direction: row;
 }
 
 .placeholder {

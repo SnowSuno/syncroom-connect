@@ -1,14 +1,15 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
+import Image from "next/image";
+
 function Header ()  {
-    const [count, setCount] = React.useState(0);
 
 
     return (<>
         <header className={styles.container}>
-            this is header
-            <button onClick={() => setCount(count + 1)}>{count}</button>
+
+            <Image src="/assets/title.svg" alt="" height={60} width={160}/>
 
 
         </header>
